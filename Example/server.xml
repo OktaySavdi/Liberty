@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server description="new server">
+
+   <!-- Enable features -->
+    <featureManager>
+        <!-- <feature>servlet-4.0</feature>  --> 
+        <feature>servlet-3.1</feature>
+		<feature>jdbc-4.1</feature>
+        <feature>jndi-1.0</feature>
+        <feature>localConnector-1.0</feature>
+        <feature>jsp-2.2</feature>
+        <feature>requestTiming-1.0</feature>  
+        <feature>sessionDatabase-1.0</feature>
+    </featureManager>
+
+	<dataSource connectionSharing="MatchCurrentState" id="db2" isolationLevel="TRANSACTION_READ_COMMITTED" jndiName="jdbc/MYJND" statementCacheSize="100" >
+            
+    	<connectionManager agedTimeout="30m" connectionTimeout="10s" maxPoolSize="50" minPoolSize="5" numConnectionsPerThreadLocal="2" purgePolicy="FailingConnectionOnly"/>        
+        <jdbcDriver libraryRef="db2lib"/>
+        <properties.db2.jcc databaseName="MYDB" password="MYPASSWORD" portNumber="50000" serverName="10.12.13.14" user="MyUser" currentSchema="MYSCHEMA" />        
+	</dataSource>
+	
+	<dataSource connectionSharing="MatchCurrentState" id="tokendb" isolationLevel="TRANSACTION_READ_COMMITTED" jndiName="jdbc/MYJND" statementCacheSize="100" >
+    	<connectionManager agedTimeout="30m" connectionTimeout="10s" maxPoolSize="50" minPoolSize="5" numConnectionsPerThreadLocal="2" purgePolicy="FailingConnectionOnly"/>        
+        <jdbcDriver libraryRef="db2lib"/>
+        <properties.db2.jcc databaseName="MYDB" password="MYPASSWORD" portNumber="50000" serverName="10.11.12.13" user="MyUser" currentSchema="MYSCHEMA" />        
+	</dataSource>
+	
+	<dataSource connectionSharing="MatchCurrentState" id="SessionDS" isolationLevel="TRANSACTION_READ_COMMITTED" jndiName="jdbc/MYJND" statementCacheSize="100">
+    	<connectionManager agedTimeout="30m" connectionTimeout="10s" maxPoolSize="50" minPoolSize="5" numConnectionsPerThreadLocal="2" purgePolicy="FailingConnectionOnly"/>        
+        <jdbcDriver libraryRef="db2lib"/>
+        <properties.db2.jcc databaseName="MYDB" password="MYPASSWORD" portNumber="50000" serverName="10.11.12.13" user="MyUser" currentSchema="MYSCHEMA" />        
+	</dataSource>
+
+
+ 	<library id="db2lib"> 	
+ 		<fileset dir="Z:/IBM/Other/library" includes="db2jcc4.jar"/>
+ 		<fileset dir="Z:/IBM/Other/library" includes="db2jcc_license_cu.jar"/> 		
+	</library>
+
+    <webContainer copyAttributesKeySet="true" defaultHeadRequestBehavior="true" defaultTraceRequestBehavior="true" disableXPoweredBy="true" disallowAllFileServing="false" enableMultiReadOfPostData="true" ignoreSessiononStaticFileRequest="true" skipMetaInfResourcesProcessing="true"/>
+    				
+    <httpOptions id="httpOptions" maxKeepAliveRequests="1000" removeServerHeader="true"/>
+    
+    <applicationMonitor dropinsEnabled="false" updateTrigger="mbean"/>
+	<config updateTrigger="disabled"/>  
+   	<applicationManager autoExpand="true"/>
+   	
+   	 <webApplication contextRoot="/" id="example" location="Z:\Temp\Deploy\example.war" name="example"/> 
+   	<!-- 
+	<!-- 	<include location="${shared.config.dir}/httpSessionPersistence.xml"/>  -->
+              
+
+	<requestTiming  includeContextInfo="true"   slowRequestThreshold="3s"     hungRequestThreshold="10s"     sampleRate="1"  >
+		<jdbcTiming hungRequestThreshold="10s" slowRequestThreshold="3s" ></jdbcTiming>
+		<servletTiming hungRequestThreshold="10s" slowRequestThreshold="3s"></servletTiming>
+	</requestTiming>
+	
+	<httpEndpoint id="defaultHttpEndpoint" host="*" httpPort="${httpPort}">
+        <tcpOptions soReuseAddr="true"/>
+    </httpEndpoint>
+    
+	<httpSessionDatabase id="SessionDB" dataSourceRef="SessionDS"/>
+	<httpSession cookieHttpOnly="false" cookieName="JSESSIONID" invalidationTimeout="30m" storageRef="SessionDB" cloneId="${cloneId}"/>
+	
+
+    
+</server>
