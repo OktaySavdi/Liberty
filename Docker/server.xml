@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server description="new server">
+
+    <!-- Enable features -->
+    <featureManager>
+        <feature>jsp-2.2</feature>
+		<feature>servlet-3.0</feature>
+    </featureManager>
+
+    <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
+	<httpEndpoint host="*" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint">
+        <httpOptions removeServerHeader="true" />
+        <tcpOptions soReuseAddr="true" inactivityTimeout="60s"/>
+	</httpEndpoint>
+	<httpSession cookieHttpOnly="false" cookieName="JSESSIONID" invalidationTimeout="20m"/>
+    <!-- Automatically expand WAR files and EAR files -->
+    <applicationManager autoExpand="true"/>
+	
+	<webApplication id="Sample1" name="Sample1" location="/liberty/wlp/usr/servers/defaultServer/dropins/Sample1.war" contextRoot="/Sample1"/>
+</server>

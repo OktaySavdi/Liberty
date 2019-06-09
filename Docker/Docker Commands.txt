@@ -1,0 +1,3 @@
+docker pull websphere-liberty
+docker build -t websphere-liberty:latest -t liberty:2.3 .
+docker run -d --name libtest -p 9080:9080 liberty:2.3
