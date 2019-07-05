@@ -1,4 +1,4 @@
-## Liberty Service
+## Liberty Linux Service
 
     [Unit]
     Description=IBM WebSphere Liberty Server
@@ -17,3 +17,12 @@
     
     [Install]
     WantedBy=multi-user.target
+    
+    
+    -----------------
+## Liberty Windows Service
+
+server  registerWinService  <server name>
+server  unregisterWinService  <server name>
+server  startWinService  <server name>
+server  stopWinService  <server name>
