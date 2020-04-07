@@ -11,7 +11,7 @@
     <dataSource id="mssqlJDBC" jndiName="jdbc/mssqlJDBC">
     <connectionManager purgePolicy="FailingConnectionOnly" numConnectionsPerThreadLocal="2" minPoolSize="5" maxPoolSize="50" connectionTimeout="10s" agedTimeout="30m"/>
     <jdbcDriver libraryRef="MSJDBCLib"/>
-    <properties.microsoft.sqlserver user="unigw" databaseName="MyUser" serverName="10.13.14.15" portNumber="1433" password="{xor}MYPASSWORD"/>
+    <properties.microsoft.sqlserver user="unigw" databaseName="MyDB" serverName="10.13.14.15" portNumber="1433" password="{xor}MYPASSWORD"/>
     </dataSource>
 
 **DB2 DataSource**
