@@ -10,6 +10,6 @@
 
 /opt/IBM/WebSphere/Liberty/bin/securityUtility encode --encoding=hash GiveMeLiberty
 
-**#encoding with "aes"**
+**#encoding with "xor"**
 
 /opt/IBM/WebSphere/Liberty/bin/securityUtility encode --encoding=xor GiveMeLiberty
