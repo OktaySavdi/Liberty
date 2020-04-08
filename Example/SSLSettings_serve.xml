@@ -1,0 +1,54 @@
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<server description="new server">
+
+    <!-- Enable features -->
+    <featureManager>
+	  <feature>javaee-8.0</feature>
+		<feature>localConnector-1.0</feature>
+    <feature>jaxws-2.2</feature>
+		<feature>jaxrs-2.1</feature>
+		<feature>ejbLite-3.2</feature>
+		<feature>wsSecurity-1.1</feature>
+		<feature>jsp-2.3</feature>
+		<feature>monitor-1.0</feature>
+		<feature>jdbc-4.2</feature>
+	  <feature>jndi-1.0</feature>
+		<feature>ssl-1.0</feature>
+		<feature>appSecurity-2.0</feature>
+    </featureManager>
+	
+	<variable name="defaultHostName" value="localhost" />
+
+    <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
+        <httpEndpoint host="*" httpPort="8086" httpsPort="9446" id="defaultHttpEndpoint">
+        <httpOptions removeServerHeader="true" />
+        <tcpOptions soReuseAddr="true" inactivityTimeout="60s" addressExcludeList="10.10.10.10" />
+		    <sslOptions sslRef="mySSLSettings" />
+        </httpEndpoint>
+        <httpSession cookieHttpOnly="false" cookieName="JSESSIONID" invalidationTimeout="20m"/>
+    <!-- Automatically expand WAR files and EAR files -->
+       <applicationManager autoExpand="true"/>
+
+    <library id="MSJDBCLib">
+    <file name="/opt/IBM/WebSphere/Liberty/SQLJDBC/sqljdbc.jar"/>
+    </library>
+
+    <dataSource id="mssqlJDBC" jndiName="mssqlJDBC">
+    <connectionManager purgePolicy="FailingConnectionOnly" numConnectionsPerThreadLocal="2" minPoolSize="5" maxPoolSize="50" connectionTimeout="10s" agedTimeout="30m"/>
+    <jdbcDriver libraryRef="MSJDBCLib"/>
+    <properties.microsoft.sqlserver user="MyUser" databaseName="MyDB" serverName="10.10.10.11" portNumber="1433" password="{xor}MyPassword"/>
+    </dataSource>
+	
+	<wasJmsEndpoint id="InboundJmsEndpoint" wasJmsPort="7279" wasJmsSSLPort="7289"/>
+
+    <ssl id="mySSLSettings" keyStoreRef="defaultKeyStore" />
+    <keyStore id="defaultKeyStore" location="/opt/IBM/WebSphere/Liberty/usr/shared/resources/MyCert.p12" password="{aes}MyCertPassword" type="PKCS12"/>
+	  <keyStore id="defaultTrustStore" location="/opt/IBM/WebSphere/Liberty/usr/shared/resources/MyCert.p12" password="{aes}MyCertPassword" type="PKCS12"/>
+    <sslDefault sslRef="mySSLSettings" />
+
+    <webApplication id="MyContextRoot" name="MyContextRoot" location="/opt/IBM/WebSphere/Liberty/usr/servers/server1/apps/MyApp.war" contextRoot="/MyContextRoot"/>
+</server>
+
+</server>
+```
