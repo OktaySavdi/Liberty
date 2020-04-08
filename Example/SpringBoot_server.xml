@@ -1,3 +1,4 @@
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <server description="new server">
 
@@ -5,8 +6,8 @@
     <featureManager>
         <feature>jsp-2.3</feature>
         <feature>collectiveMember-1.0</feature>
-		<feature>springBoot-1.5</feature>
-		<feature>servlet-3.1</feature>
+        <feature>springBoot-1.5</feature>
+        <feature>servlet-3.1</feature>
     </featureManager>
 
     <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
@@ -19,3 +20,4 @@
     <applicationManager autoExpand="true"/>
 	<springBootApplication location="/opt/IBM/WebSphere/Liberty02/usr/servers/member8/apps/rtc.jar"/>
 </server>
+```
