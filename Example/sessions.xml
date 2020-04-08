@@ -5,7 +5,7 @@
     <featureManager>
         <!-- <feature>servlet-4.0</feature>  --> 
         <feature>servlet-3.1</feature>
-		<feature>jdbc-4.1</feature>
+	<feature>jdbc-4.1</feature>
         <feature>jndi-1.0</feature>
         <feature>localConnector-1.0</feature>
         <feature>jsp-2.2</feature>
@@ -61,8 +61,5 @@
     </httpEndpoint>
     
 	<httpSessionDatabase id="SessionDB" dataSourceRef="SessionDS"/>
-	<httpSession cookieHttpOnly="false" cookieName="JSESSIONID" invalidationTimeout="30m" storageRef="SessionDB" cloneId="${cloneId}"/>
-	
-
-    
+	<httpSession cookieHttpOnly="false" cookieName="JSESSIONID" invalidationTimeout="30m" storageRef="SessionDB" cloneId="${cloneId}"/>	    
 </server>
