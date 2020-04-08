@@ -5,17 +5,17 @@
     <!-- Enable features -->
     <featureManager>
 	  <feature>javaee-8.0</feature>
-		<feature>localConnector-1.0</feature>
-                <feature>jaxws-2.2</feature>
-		<feature>jaxrs-2.1</feature>
-		<feature>ejbLite-3.2</feature>
-		<feature>wsSecurity-1.1</feature>
-		<feature>jsp-2.3</feature>
-		<feature>monitor-1.0</feature>
-		<feature>jdbc-4.2</feature>
-	        <feature>jndi-1.0</feature>
-		<feature>ssl-1.0</feature>
-		<feature>appSecurity-2.0</feature>
+	  <feature>localConnector-1.0</feature>
+          <feature>jaxws-2.2</feature>
+	  <feature>jaxrs-2.1</feature>
+	  <feature>ejbLite-3.2</feature>
+	  <feature>wsSecurity-1.1</feature>
+	  <feature>jsp-2.3</feature>
+	  <feature>monitor-1.0</feature>
+	  <feature>jdbc-4.2</feature>
+	  <feature>jndi-1.0</feature>
+	  <feature>ssl-1.0</feature>
+	  <feature>appSecurity-2.0</feature>
     </featureManager>
 	
 	<variable name="defaultHostName" value="localhost" />
