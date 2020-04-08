@@ -4,12 +4,12 @@
     <!-- Enable features -->
     <featureManager>
         <feature>jsp-2.2</feature>
-		<feature>jdbc-4.1</feature>
-	    <feature>jndi-1.0</feature>
-		<feature>jaxws-2.2</feature>
-		<feature>servlet-3.0</feature>
-		<feature>jaxrs-1.1</feature>
-		<feature>appState-1.0</feature>
+	<feature>jdbc-4.1</feature>
+	<feature>jndi-1.0</feature>
+        <feature>jaxws-2.2</feature>
+	<feature>servlet-3.0</feature>
+	<feature>jaxrs-1.1</feature>
+	<feature>appState-1.0</feature>
     </featureManager>
 
     <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
@@ -21,16 +21,16 @@
     <!-- Automatically expand WAR files and EAR files -->
     <applicationManager autoExpand="true"/>
 	
-	<library id="MSJDBCLib">
+    <library id="MSJDBCLib">
     <file name="/opt/IBM/WebSphere/Liberty/SQLJDBC/sqljdbc.jar"/>
     </library>
 	
-	<dataSource id="mssqlJDBC" jndiName="jdbc/MyDataSource">
-	<connectionManager purgePolicy="FailingConnectionOnly" numConnectionsPerThreadLocal="2" minPoolSize="5" maxPoolSize="50" connectionTimeout="10s" agedTimeout="30m"/>
+    <dataSource id="mssqlJDBC" jndiName="jdbc/MyDataSource">
+    <connectionManager purgePolicy="FailingConnectionOnly" numConnectionsPerThreadLocal="2" minPoolSize="5" maxPoolSize="50" connectionTimeout="10s" agedTimeout="30m"/>
     <jdbcDriver libraryRef="MSJDBCLib"/>
     <properties.microsoft.sqlserver user="MyUser" databaseName="MyDB" serverName="12.13.14.15" portNumber="1433" password="MyPassword"/>
     </dataSource>
 	
-	<webApplication id="Example1" name="Example1" location="/opt/IBM/WebSphere/Liberty/usr/servers/server1/apps/Example1.war" contextRoot="/Example1"/>
-	<webApplication id="Example2" name="Example2" location="/opt/IBM/WebSphere/Liberty/usr/servers/server1/apps/Example2.war" contextRoot="/Example2"/>
+    <webApplication id="Example1" name="Example1" location="/opt/IBM/WebSphere/Liberty/usr/servers/server1/apps/Example1.war" contextRoot="/Example1"/>
+    <webApplication id="Example2" name="Example2" location="/opt/IBM/WebSphere/Liberty/usr/servers/server1/apps/Example2.war" contextRoot="/Example2"/>
 </server>
