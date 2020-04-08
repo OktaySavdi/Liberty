@@ -41,8 +41,5 @@
 	
     <!-- Context Root -->
 	<webApplication id="example1" name="example1" location="/opt/IBM/WebSphere/Liberty/usr/servers/member1/apps/example1.war" contextRoot="/example1"/>
-	<webApplication id="example2" name="example2" location="/opt/IBM/WebSphere/Liberty/usr/servers/member1/apps/example2.war" contextRoot="/example2"/>
-	<!--
-	<webApplication id="KosWeb" name="KosWeb" location="/opt/IBM/WebSphere/Liberty/usr/servers/member1/apps/KosWeb.war" contextRoot="/KosWeb"/>
-	<webApplication id="KomiteWS" name="KomiteWS" location="/opt/IBM/WebSphere/Liberty/usr/servers/member1/apps/KomiteWS.war" contextRoot="/KomiteWS"/> -->
+	<webApplication id="example2" name="example2" location="/opt/IBM/WebSphere/Liberty/usr/servers/member1/apps/example2.war" contextRoot="/example2"/>	
 </server>
