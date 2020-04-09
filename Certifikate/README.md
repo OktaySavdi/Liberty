@@ -1,4 +1,4 @@
-## Liberty SSL Certificate 
+## Liberty SSL Certificate Configuration
 
 1.  Enable the SSL feature.
     
