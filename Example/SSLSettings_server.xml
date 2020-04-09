@@ -44,7 +44,7 @@
 
     <ssl id="mySSLSettings" keyStoreRef="defaultKeyStore" />
     <keyStore id="defaultKeyStore" location="/opt/IBM/WebSphere/Liberty/usr/shared/resources/MyCert.p12" password="{aes}MyCertPassword" type="PKCS12"/>
-	  <keyStore id="defaultTrustStore" location="/opt/IBM/WebSphere/Liberty/usr/shared/resources/MyCert.p12" password="{aes}MyCertPassword" type="PKCS12"/>
+    <keyStore id="defaultTrustStore" location="/opt/IBM/WebSphere/Liberty/usr/shared/resources/MyCert.p12" password="{aes}MyCertPassword" type="PKCS12"/>
     <sslDefault sslRef="mySSLSettings" />
 
     <webApplication id="MyContextRoot" name="MyContextRoot" location="/opt/IBM/WebSphere/Liberty/usr/servers/server1/apps/MyApp.war" contextRoot="/MyContextRoot"/>
