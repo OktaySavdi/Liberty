@@ -1,3 +1,5 @@
 ## Liberty DefaulHostname
 
-    <variable name="defaultHostName" value="MyComputer.nip.io"/>
+```xml
+<variable name="defaultHostName" value="MyComputer.nip.io"/>
+```
