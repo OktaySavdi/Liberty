@@ -1,4 +1,4 @@
-## Liberty Certificate 
+## Liberty SSL Certificate 
 
 1.  Enable the SSL feature.
     
