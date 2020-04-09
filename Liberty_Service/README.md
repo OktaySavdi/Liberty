@@ -23,8 +23,8 @@ WantedBy=multi-user.target
 ## Liberty Windows Service
 
 ```bash
-server  registerWinService  <server name>
+server  registerWinService    <server name>
 server  unregisterWinService  <server name>
 server  startWinService  <server name>
-server  stopWinService  <server name>
+server  stopWinService   <server name>
 ```
