@@ -13,17 +13,17 @@
 2.  Create an SSL configuration.
     
 ```xml
-    <ssl id="mySSLSettings" keyStoreRef="myKeyStore" />
-      <keyStore id="myKeyStore"
-                location="server/server.p12"
-                type="PKCS12"
-                password="passServer12" />
+<ssl id="mySSLSettings" keyStoreRef="myKeyStore" />
+<keyStore id="myKeyStore"
+          location="server/server.p12"
+          type="PKCS12"
+          password="passServer12" />
 ```
     
 3.  Configure your HTTP endpoint to use this SSL configuration or set the configuration as the default.
     
 ```xml
-    <sslDefault sslRef="mySSLSettings" />
+<sslDefault sslRef="mySSLSettings" />
 ```
 
 Example
