@@ -26,7 +26,7 @@
 <sslDefault sslRef="mySSLSettings" />
 ```
 
-Example
+**Example**
  ```xml   
 <ssl id="mySSLSettings" keyStoreRef="defaultKeyStore" />
 <keyStore id="defaultKeyStore" location="/opt/IBM/WebSphere/Liberty/usr/shared/resources/mycert.mydomain.p12" password="{aes}AFYIZMu5nT0" type="PKCS12"/>
